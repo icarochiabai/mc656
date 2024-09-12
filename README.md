@@ -10,4 +10,3 @@
 
 Queremos fazer algo inspirado em jogos como Wordle, Gamedle, etc...
 
-Teste de chave ssh
