@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "country-game"
+version = "0.1.0"
+description = ""
+authors = ["Vinicius Errero <v206768@dac.unicamp.br>"]
+include = ["assets/countries.csv"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+polars = "^1.13.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.3"
+pytest-mock = "^3.14.0"
+freezegun = "^1.5.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
