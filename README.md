@@ -16,4 +16,4 @@ Queremos fazer um jogo de navegador que consiste em tentativas e erros, o objeti
 
 ### Ferramentas
 
-Iremos desenvolver essa aplicação web utilizando o framework *Flask* na linguagem *Python*
+Iremos desenvolver essa aplicação web utilizando o framework *Flask* na linguagem *Python*.
