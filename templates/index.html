@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='index_style.css')}}">
+    <title>Flagle</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Flagle</h1>
+    </div>
+
+    <div class="content">
+        <div>
+            <img src="{{ url_for('static', filename=image_path) }}">
+        </div>
+        <div>
+            <h2>Tries goes here</h2>
+        </div>
+    </div>
+
+    <div class="footer">
+        <form action="/trocar_imagem" method="post">
+            <input type="text" name="new_image" placeholder="Enter new image path (e.g., images/new.jpg)">
+            <button type="submit">Update Image</button>
+        </form>
+        <h1>Some info goes here</h1>
+    </div>
+</body>
+</html>
