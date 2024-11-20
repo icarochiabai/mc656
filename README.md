@@ -1,10 +1,14 @@
-Este é o nosso projeto da disciplina MC636 - Engenharia de Software, ofertada pela Universidade Estadual de Campinas aos cursos de graduação em Computação.
+Este é o nosso projeto da disciplina MC656 - Engenharia de Software, ofertada pela Universidade Estadual de Campinas aos cursos de graduação em Computação.
 
 ## Integrantes
 
 247171 - Ícaro Chiabai
 
 206768 - Vinicius Errero
+
+232517 - Guilherme Braga
+
+237575 - João Bonatti
 
 ## Descrição do projeto
 
