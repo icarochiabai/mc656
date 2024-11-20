@@ -5,10 +5,12 @@ app = Flask(__name__)
 # Caminho inicial da imagem
 current_image = "images/default.png"
 
+
 @app.route("/")
 def home():
     global current_image
     return render_template("index.html", image_path=current_image)
+
 
 @app.route("/trocar_imagem", methods=["POST"])
 def trocar_imagem():
@@ -17,6 +19,7 @@ def trocar_imagem():
     new_image = request.form.get("new_image", "images/default.jpg")
     current_image = new_image
     return redirect(url_for("home"))
+
 
 if __name__ == "__main__":
     app.run(debug=True)
