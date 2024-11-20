@@ -6,6 +6,10 @@ Este é o nosso projeto da disciplina MC656 - Engenharia de Software, ofertada p
 
 206768 - Vinicius Errero
 
+232517 - Guilherme Braga
+
+237575 - João Bonatti
+
 ## Descrição do projeto
 
 ### Ideia principal
