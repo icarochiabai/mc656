@@ -37,7 +37,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r ci-requirements.txt
         pip install -r requirements.txt
-        - name: Check lint with Ruff
+    - name: Check lint with Ruff
       run: |
         ruff check
     - name: Check formatting with Ruff
