@@ -1,10 +1,10 @@
-from country_game.country_chooser import CountryChooser
+from scripts.country_chooser import CountryChooser
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from freezegun import freeze_time
 import os
 
-CSV_PATH = "country_game/assets/countries.csv"
+CSV_PATH = "static/countries.csv"
 
 
 # Test the initialization of CountryChooser
