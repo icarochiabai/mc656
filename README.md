@@ -1,4 +1,4 @@
-Este é o nosso projeto da disciplina MC636 - Engenharia de Software, ofertada pela Universidade Estadual de Campinas aos cursos de graduação em Computação.
+Este é o nosso projeto da disciplina MC656 - Engenharia de Software, ofertada pela Universidade Estadual de Campinas aos cursos de graduação em Computação.
 
 ## Integrantes
 
