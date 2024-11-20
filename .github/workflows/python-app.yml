@@ -30,7 +30,7 @@ jobs:
         pip install -r requirements.txt
     - name: Check lint with Ruff
       run: |
-        ruff --check
+        ruff check
     - name: Check formatting with Ruff
       run: |
         ruff format --check
