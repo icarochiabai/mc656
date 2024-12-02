@@ -82,4 +82,8 @@ O jogo Globle também tem como objetivo adivinhar o país, mas de forma interati
 
 ## Brainstorming
 
-TBD
+O grupo se juntou em uma ligação e utilizou a plataforma Miro para fazer um brainstorming do projeto, dividindo as ideias em tópicos que julgamos mais essenciais para a realização da atividade e do projeto como um todo. O brainstorming resultou na imagem a seguir:
+
+##### Brainstorming no Miro
+
+![Brainstorming](./images/brainstorming.png)
