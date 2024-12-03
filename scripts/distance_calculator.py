@@ -7,13 +7,13 @@ from typing import Literal
 
 
 class DistanceCalculator:
-    def __init__(
-        self,
-        unit: Literal["km", "mi"] = "km",
-        precision: int = 1
-    ) -> None:
+    def __init__(self, unit: Literal["km", "mi"] = "km", precision: int = 1) -> None:
         self.unit = unit
         self.precision = precision
-    
-    def calculate_distance(self, guessed_country: tuple[int, int], correct_country: tuple[int, int]) -> float:
-        return round(haversine(guessed_country, correct_country, unit=self.unit), self.precision)
+
+    def calculate_distance(
+        self, guessed_country: tuple[int, int], correct_country: tuple[int, int]
+    ) -> float:
+        return round(
+            haversine(guessed_country, correct_country, unit=self.unit), self.precision
+        )
