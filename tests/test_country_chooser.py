@@ -4,7 +4,7 @@ from zoneinfo import ZoneInfo
 from freezegun import freeze_time
 import os
 
-CSV_PATH = "static/countries.csv"
+CSV_PATH = "static/countries_position.csv"
 
 
 # Test the initialization of CountryChooser
