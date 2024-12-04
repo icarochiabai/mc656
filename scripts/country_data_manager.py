@@ -6,17 +6,31 @@ class DatabaseHandler:
     def __init__(
         self,
         db_path: str = "countries.db",
-        positions_csv_path="static/countries.csv",
+        csv_path="static/countries.csv",
     ) -> None:
         self.db_path = db_path
-        self.positions_csv_path = positions_csv_path
+        self.csv_path = csv_path
         self.initialize_database()
 
-    def get_country_details(self, country_code: str) -> tuple[str, float, float, str]:
-        query = (
-            f"SELECT * FROM countries_position WHERE country_code = '{country_code}'"
-        )
+    def get_country_details(
+        self, *, country_code: str = None, index: int = None
+    ) -> tuple[int, str, float, float, str, float, int]:
+        if country_code is None and index is None:
+            raise RuntimeError("No parameters provided")
+
+        if country_code is not None and index is not None:
+            raise RuntimeError("Both country code and index provided. Only specify one")
+
+        if country_code:
+            query = f"SELECT * FROM countries WHERE country_code = '{country_code}'"
+        else:
+            query = f"""SELECT * FROM countries WHERE "index" = '{index}'"""
+
         return self.cursor.execute(query).fetchone()
+
+    def get_row_count(self) -> int:
+        query = "SELECT COUNT(*) FROM countries"
+        return self.cursor.execute(query).fetchone()[0]
 
     def initialize_database(self) -> None:
         self.conn = sqlite3.connect(self.db_path)
@@ -35,9 +49,5 @@ class DatabaseHandler:
         self.add_data_to_database()
 
     def add_data_to_database(self) -> None:
-        countries_position_df = pd.read_csv(
-            self.positions_csv_path, keep_default_na=False
-        )
-        countries_position_df.to_sql(
-            "countries_position", self.conn, if_exists="replace", index=False
-        )
+        countries_df = pd.read_csv(self.csv_path, keep_default_na=False)
+        countries_df.to_sql("countries", self.conn, if_exists="replace")
