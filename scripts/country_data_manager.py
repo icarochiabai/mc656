@@ -6,7 +6,7 @@ class DatabaseHandler:
     def __init__(
         self,
         db_path: str = "countries.db",
-        positions_csv_path="static/countries_position.csv",
+        positions_csv_path="static/countries.csv",
     ) -> None:
         self.db_path = db_path
         self.positions_csv_path = positions_csv_path
