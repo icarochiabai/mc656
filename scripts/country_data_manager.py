@@ -36,16 +36,6 @@ class DatabaseHandler:
         self.conn = sqlite3.connect(self.db_path)
         self.cursor = self.conn.cursor()
 
-        positions_query = (
-            "CREATE TABLE IF NOT EXISTS countries_position ("
-            "country_code TEXT PRIMARY KEY, "
-            "latitude REAL NOT NULL, "
-            "longitude REAL NOT NULL, "
-            "name TEXT NOT NULL)"
-        )
-
-        self.cursor.execute(positions_query)
-
         self.add_data_to_database()
 
     def add_data_to_database(self) -> None:
