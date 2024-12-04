@@ -13,7 +13,9 @@ def temp_csv_path():
     """
 
     with NamedTemporaryFile(mode="w", delete=False, suffix=".csv") as temp_csv:
-        temp_csv.write("country_code,latitude,longitude,country_name,emissions,population\n")
+        temp_csv.write(
+            "country_code,latitude,longitude,country_name,emissions,population\n"
+        )
         temp_csv.write("XE,83.9824,-41.3111,Xen,31415.9,2718281\n")
         temp_csv.write("RH,-129.6069,-80.9338,Ravelholm,14142.1,6626068\n")
     yield temp_csv.name
@@ -55,7 +57,9 @@ def test_get_country_details(db_handler):
     xen_details = db_handler.get_country_details(country_code="XE")
     xen_details_index = db_handler.get_country_details(index=0)
 
-    assert xen_details == xen_details_index # Asserting both index and country code works
+    assert (
+        xen_details == xen_details_index
+    )  # Asserting both index and country code works
 
     assert xen_details is not None
     assert xen_details[0] == 0  # index
