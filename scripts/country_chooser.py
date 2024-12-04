@@ -14,9 +14,7 @@ import os
 
 
 class CountryChooser:
-    def __init__(
-        self, seed: int | str = None, timezone: str = "Etc/UTC"
-    ) -> None:
+    def __init__(self, seed: int | str = None, timezone: str = "Etc/UTC") -> None:
         self.seed = self.init_seed(seed)
         self.timezone = ZoneInfo(str(timezone))
         self.today_country_id = None
@@ -51,12 +49,12 @@ class CountryChooser:
         yesterday_seed = self.get_hashed_seed(yesterday_time)
 
         random.seed(yesterday_seed)
-        self.yesterday_country_id = random.choice(range(number_of_countries-1))
+        self.yesterday_country_id = random.choice(range(number_of_countries - 1))
 
         random.seed(today_seed)
 
         while True:
-            candidate_id = random.choice(range(number_of_countries-1))
+            candidate_id = random.choice(range(number_of_countries - 1))
             if candidate_id != self.yesterday_country_id:
                 self.today_country_id = candidate_id
                 break
