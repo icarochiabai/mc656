@@ -1,3 +1,2 @@
-pillow==11.0.0
 haversine==2.9.0
 pandas==2.2.3
