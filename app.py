@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from scripts.game_logic import GameLogic
-import itertools, random
+import random
 
 app = Flask(__name__)
 guesses = []
