@@ -43,6 +43,6 @@ class DatabaseHandler:
         countries_df.to_sql("countries", self.conn, if_exists="replace")
 
     def get_countries_names(self) -> list:
-        query = f"SELECT country_name FROM countries"
+        query = "SELECT country_name FROM countries"
         pre_data = self.cursor.execute(query).fetchall()
         return [country[0] for country in pre_data]
