@@ -3,28 +3,252 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='index_style.css')}}">
-    <title>Flagle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Flavors&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
+    <title>🌍 Earthle</title>
 </head>
 <body>
     <div class="header">
-        <h1>Flagle</h1>
+        <h1><span style="color:#e9eff9">Ea</span><span style="color:#6b93d6">rth</span><span style="color:#9fc164">le</span></h1>
     </div>
 
     <div class="content">
-        <div>
-            <img src="{{ url_for('static', filename=image_path) }}">
-        </div>
-        <div>
-            <h2>Tries goes here</h2>
+        <div class="globe-container">
+            <svg class="globe-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="350" height="350">
+                <defs>
+                    <clipPath id="clip">
+                    <circle cx="175" cy="175" r="157"/>
+                    </clipPath>
+                </defs>
+                <circle cx="175" cy="175" r="170" fill="#2314a1">
+                    <animate attributeName="r" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1"
+                            values="170;175;170" dur="5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="175" cy="175" r="157" fill="#4294fe"/>
+                <g clip-path="url(#clip)">
+                    <g>
+                    <g id="land" fill="#43d8aa">
+                        <path d="M14 101v12a6 6 0 0 1 6 6 6 6 0 0 1-6 6v12h40v-12a6 6 0 0 1-6-6 6 6 0 0 1 6-6v-12H14zm75 177v8a7.5 7.5 0 0 1 7.5 7.5A7.5 7.5 0 0 1 89 301v9h32v-9a7.5 7.5 0 0 1-7.5-7.5 7.5 7.5 0 0 1 7.5-7.5v-8z"/>
+                        <rect y="9"   x="197" width="52"  height="30" rx="15" ry="15"/>
+                        <rect y="57"  x="-34" width="150" height="56" rx="28" ry="28"/>
+                        <rect y="81"  x="176" width="65"  height="30" ry="15" rx="15"/>
+                        <rect y="125" x="-3"  width="82"  height="39" ry="19.5" rx="19.5"/>
+                        <rect y="139" x="189" width="195" height="64" rx="32" ry="32"/>
+                        <rect y="218" x="250" width="100" height="40" rx="20" ry="20"/>
+                        <rect y="230" x="-17" width="180" height="56" ry="28" rx="28"/>
+                        <rect y="301" x="56"  width="104" height="30" rx="15" ry="15"/>
+                    </g>
+                    <use transform="translate(400 0)" xlink:href="#land"/>
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate"
+                                        from="0 0" to="-400 0" dur="15s" repeatCount="indefinite"/>
+                    </g>
+                    <g>
+                    <g id="clouds" fill="#e6ebfc">
+                        <path d="M242 87v6.03a3 3 0 0 1 .38-.03 3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-.38-.03V105h18v-6a3 3 0 0 1-3-3 3 3 0 0 1 3-3v-6zm53-2v4a5 5 0 0 1 0 10v4h30v-4a5 5 0 0 1 0-10v-4h-30zM48 209v6a4.5 4.5 0 1 1 0 9v3h29v-3a4.5 4.5 0 1 1 0-9v-6zM81 65v3a3.5 3.5 0 1 1 0 7v2h16v-2a3.5 3.5 0 1 1 0-7v-3zm18 181v4a5 5 0 0 1 0 10v4h30v-4a5 5 0 0 1 0-10v-4z"/>
+                        <rect y="50"  x="64"  width="53"  height="18" rx="9"  ry="9" />
+                        <rect y="53"  x="269" width="80"  height="36" rx="18" ry="18"/>
+                        <rect y="75"  x="0"   width="112" height="22" rx="11" ry="11"/>
+                        <rect y="83"  x="236" width="32"  height="10" rx="5"  ry="5" />
+                        <rect y="99"  x="227" width="112" height="24" rx="12" ry="12"/>
+                        <rect y="102" x="146" width="36"  height="16" rx="8"  ry="8" />
+                        <rect y="172" x="119" width="62"  height="30" rx="15" ry="15"/>
+                        <rect y="197" x="0"   width="90"  height="18" rx="9"  ry="9" />
+                        <rect y="293" x="219" width="30"  height="16" rx="8"  ry="8" />
+                        <rect y="224" x="31"  width="118" height="26" rx="13" ry="13"/>
+                        <rect y="260" x="77"  width="77"  height="36" rx="18" ry="18"/>
+                        <rect y="264" x="228" width="44"  height="22" rx="11" ry="11"/>
+                    </g>
+                    <use transform="translate(400 0)" xlink:href="#clouds"/>
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate"
+                                        from="0 0" to="-400 0" dur="10s" repeatCount="indefinite"/>
+                    </g>
+                </g>
+            </svg>
+            <div class="floating-rectangle rectangle1">
+                <div class="titulo">
+                    <h1>Emissão de CO₂</h1>
+                </div>
+                <div class="dados">
+                    <div class="bloco">
+                        <h3>Total</h3>
+                        <h1>{{ co2_emission|int }} </h1>
+                        <h3> ton/ano </h3>
+                    </div>
+                    <div class="bloco">
+                        <h3>Per Capita</h3>
+                        <h1>{{ (co2_emission/population)|round(2) }} </h1>
+                        <h3> ton/ano </h3>
+
+                    </div>
+                </div>
+            </div>
+            <div class="floating-rectangle rectangle2">
+                <div class="titulo">
+                    <h1>Consumo hídrico</h1>
+                </div>
+                <div class="dados">
+                    <div class="bloco">
+                        <h3>Total</h3>
+                        <h1>{{ consume|int }} </h1>
+                        <h3> Mm³/ano </h3>
+                    </div>
+                    <div class="bloco">
+                        <h3>Per Capita</h3>
+                        <h1>{{ (1000*1000*1000*consume/population)|round(2) }} </h1>
+                        <h3> L/ano </h3>
+                    </div>
+                </div>
+            </div>
+            <div id="bandeira" class="floating-rectangle rectangle3" style="background-color: transparent; background-image: url({{ '/static/images/' + code  + '.png'}}); background-repeat:no-repeat; background-size:contain; filter: blur({{blur}}px);">
+            </div>
+            <div class="floating-rectangle rectangle4">
+                <div class="titulo">
+                    <h1>Desmatamento</h1>
+                </div>
+                <div class="dados">
+                    <div class="bloco">
+                        <h3>Total</h3>
+                        <h1>{{ deflorest }}</h1>
+                        <h3> hec/ano </h3>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="footer">
-        <form action="/trocar_imagem" method="post">
-            <input type="text" name="new_image" placeholder="Enter new image path (e.g., images/new.jpg)">
-            <button type="submit">Update Image</button>
+    <div class="chutes">
+        <form method="POST" action=" {{url_for('guess_country') }}" autocomplete="off">
+            <div class="entrada">
+                <div class="textos">
+                    <h4>Tentativas</h4>
+                    <h2>{{ guesses|length }} / 5</h2>
+                </div>
+                <input list="countries" id="country" name="country" placeholder="Escolha um país...">
+            </div>
+            <datalist id="countries">
+                {% for country in countries %}
+                    <option value="{{ country }}">
+                {% endfor %}
+            </datalist>
         </form>
-        <h1>Some info goes here</h1>
+            {% if guesses|length > 0 %}
+        <div class="tentativas">
+                    {% for guess in guesses %}
+                        <div class="linha">
+                            <div class="linha-nome"> {{ guess[0] }} </div>
+                            <div class="linha-dist"> {{ guess[1] }} km </div>
+                            <div class="linha-emoji"> {% if guess[0] == name %} 
+                                    🟢🎉
+                                 {% else %}
+                                    🔴
+                                 {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        <a target="_blank" href="https://github.com/icarochiabai/mc656"><p>Repositório disponível no GitHub</p></a>
+        <p>Desenvolvido para disciplina de Engenharia de Software MC656 oferecida pelo Instituto de Computação @ Unicamp</p>
+    </div>
+
+    <div class="win-screen" style="display:{{ 'block' if has_won else 'none' }}">
+        <div class="win-wrapper">
+            <h1>Parabéns! Você ganhou! 🎉🥳</h1>
+            <div class="win-flag">
+                <img src="{{ '/static/images/' + code + '.png' }}"/>
+                <h1>
+                    {{name}}
+                </h1>
+            </div>
+            <div class="win-stats">
+                <div class="item">
+                    <h3>👥</h3>
+                    <h1>{{population}}</h1>
+                    <h4>Habitantes</h4>
+                </div>
+                <div class="item">
+                    <h3>💨</h3>
+                    <h1>{{co2_emission}}</h1>
+                    <h4>Emissão de CO₂</h4>
+                    <h5>(toneladas/ano)</h5>
+                </div>
+                <div class="item">
+                    <h3>💧</h3>
+                    <h1>{{consume}}</h1>
+                    <h4>Consumo hídrico</h4>
+                    <h5>(Mm³/ano)</h5>
+                </div>
+                <div class="item">
+                    <h3>🪓</h3>
+                    <h1>{{deflorest}}</h1>
+                    <h4>Desmatamento</h4>
+                    <h5>(Hectare/ano)</h5>
+                </div>
+            </div>
+            <div class="win-button">
+                <form method="POST" action=" {{url_for('reset') }}">
+                    <button>Jogar novamente</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="lose-screen" style="display:{{ 'block' if has_lost else 'none' }}">
+        <div class="lose-wrapper">
+            <h1>Você perdeu! 😢</h1>
+            <p>
+                Infelizmente, desta vez não deu certo. Mas é assim que os maiores aprendem e evoluem, enfrentando as dificuldades de frente e transformando erros em oportunidades. Reflita sobre o que deu errado, pense em novas estratégias e lembre-se: cada tentativa traz você um passo mais perto do sucesso. Não desista e volte mais forte para alcançar a vitória!
+            </p>
+            <img src="https://media1.tenor.com/m/R4Ky10OWvpQAAAAC/vegeta-raining.gif"/>
+            <div class="win-button">
+                <form method="POST" action=" {{url_for('reset') }}">
+                    <button>Jogar novamente</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <h3>Economize Água</h3>
+        <ul>
+            <li><strong>Feche a torneira:</strong> Ao escovar os dentes ou lavar louça, mantenha a torneira fechada enquanto não estiver usando a água.</li>
+            <li><strong>Reaproveite a água:</strong> Utilize a água da máquina de lavar para limpar o quintal ou descarregar o vaso sanitário.</li>
+            <li><strong>Opte por torneiras e chuveiros eficientes:</strong> Modelos econômicos reduzem o consumo sem comprometer a funcionalidade.</li>
+        </ul>
+        <h3>Reduza a Emissão de Carbono</h3>
+        <ul>
+            <li><strong>Transporte sustentável:</strong> Sempre que possível, caminhe, ande de bicicleta ou use transporte público. Considere também caronas e veículos elétricos.</li>
+            <li><strong>Consumo consciente de energia:</strong> Desligue luzes e aparelhos eletrônicos quando não estiverem em uso. Substitua lâmpadas tradicionais por LEDs, que consomem menos energia.</li>
+            <li><strong>Compre localmente:</strong> Produtos locais exigem menos transporte, reduzindo a emissão de gases do efeito estufa.</li>
+        </ul>
+        <h3>Combata o Desmatamento</h3>
+        <ul>
+            <li><strong>Escolha madeira certificada:</strong> Certificações como FSC garantem que a madeira foi extraída de forma sustentável.</li>
+            <li><strong>Apoie projetos de reflorestamento:</strong> Contribua com iniciativas que promovam a recuperação de áreas desmatadas.</li>
+            <li><strong>Reduza o consumo de papel:</strong> Prefira documentos digitais e, quando necessário, use papel reciclado.</li>
+        </ul>
+        <h3>Adote Hábitos Sustentáveis na Alimentação</h3>
+        <ul>
+            <li><strong>Reduza o desperdício de alimentos:</strong> Planeje suas compras e aproveite os alimentos integralmente.</li>
+            <li><strong>Consuma menos carne:</strong> A pecuária é uma das maiores responsáveis pelo desmatamento e emissão de gases de efeito estufa. Experimente incluir mais refeições à base de vegetais.</li>
+            <li><strong>Prefira orgânicos:</strong> Produtos orgânicos são cultivados sem agrotóxicos, preservando a saúde do solo e da água.</li>
+        </ul>
+        <h3>Diminua o Descarte de Resíduos</h3>
+        <ul>
+            <li><strong>Recicle e separe o lixo:</strong> Verifique as regras de reciclagem na sua cidade e separe plásticos, papéis, metais e vidros.</li>
+            <li><strong>Evite plásticos descartáveis:</strong> Opte por sacolas reutilizáveis, garrafas e canudos de metal ou vidro.</li>
+            <li><strong>Composte resíduos orgânicos:</strong> Transforme restos de alimentos em adubo para plantas.</li>
+        </ul>
+        <h3>Pratique o Consumo Consciente</h3>
+        <ul>
+            <li><strong>Questione antes de comprar:</strong> Pergunte a si mesmo se realmente precisa de um novo produto.</li>
+            <li><strong>Apoie marcas sustentáveis:</strong> Prefira empresas comprometidas com práticas éticas e sustentáveis.</li>
+            <li><strong>Reutilize e doe:</strong> Prolongue a vida útil de roupas, móveis e eletrônicos compartilhando ou adaptando-os.</li>
+        </ul>
     </div>
 </body>
 </html>

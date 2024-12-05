@@ -5,26 +5,447 @@ html, body{
 
     margin: 0px;
     padding: 0px;
+    background-color: #faf6ed;
 }
 
 body {
     display: flex;
     flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;  
 }
 
 .header {
-    background-color: red;
+    font-family: 'Flavors', cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+
+    color: white;
+    height: 64px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1 {
+    padding-top: 2rem;
+    text-shadow: 1px 1px 3px black;
+    transition: all 0.3s ease-in-out;
+}
+
+.header h1:hover {
+    scale: 1.1;
+    rotate: 3deg;
+    cursor: pointer;
 }
 
 .content {
-    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 680px;
+}
 
+.chutes {
+    flex-grow: 1;
+}
+
+.footer {
+    color: #5F8D4E;
+    height: 64px;
+    text-align: center;
+}
+
+.footer a {
+    text-decoration: none;
+    text-decoration-style: none;
+    color: #5F8D4E;
+}
+
+@keyframes floatAnimation1 {
+  0%, 100% {
+    transform: translateY(-13px); /* Não afeta a posição original */
+  }
+  50% {
+    transform: translateY(10px); /* Apenas flutuação vertical */
+  }
+}
+
+@keyframes floatAnimation2 {
+  0%, 100% {
+    transform: translateY(6px); /* Não afeta a posição original */
+  }
+  50% {
+    transform: translateY(-7px); /* Apenas flutuação vertical */
+  }
+}
+
+@keyframes floatAnimation3 {
+  0%, 100% {
+    transform: translateY(16px); /* Não afeta a posição original */
+  }
+  50% {
+    transform: translateY(-9px); /* Apenas flutuação vertical */
+  }
+}
+
+@keyframes floatAnimation4 {
+  0%, 100% {
+    transform: translateY(-12px); /* Não afeta a posição original */
+  }
+  50% {
+    transform: translateY(8px); /* Apenas flutuação vertical */
+  }
+}
+
+.globe-container {
+    position: relative;
+}
+
+/* Estilo para os retângulos flutuantes */
+.floating-rectangle {
+    position: absolute;
+    width: 400px;    /* Largura dos retângulos */
+    height: 200px;   /* Altura dos retângulos */
+    background-color: rgba(0, 128, 0, 0.6);  /* Cor com transparência */
+    color: white;
+
+    transition: all 0.3s ease; /* Transição suave para hover */
+    scale: 0.8;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0;
+    box-shadow: 0.2px 1px 10px black;
+}
+
+.titulo {
+    border-bottom: 1px solid white;
+}
+
+.floating-rectangle:hover {
+    scale: 1.2;
+    cursor: pointer;
+}
+
+
+
+/* Posições dos retângulos em volta do globo */
+.rectangle1 { 
+    top:-100px;
+    left: -100%;
+    animation: floatAnimation1 10.1s ease-in-out infinite;
+    background-image: url(https://thehill.com/wp-content/uploads/sites/2/2023/12/6583687ac36632.92253592-e1714172952923.jpeg?strip=1);
+    background-size: cover;
+}
+
+.rectangle1:hover {
+    rotate: 2deg;
+}
+
+.rectangle2 { 
+    bottom: -120px; 
+    left: -85%;
+    animation: floatAnimation2 10.2s ease-in-out infinite;
+    background-image: url(https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2022/03/07/toerneira.jpg);
+    background-size: cover;
+}
+
+.rectangle2:hover {
+    rotate: -1deg;
+}
+
+.rectangle3 { 
+    top: -70px; 
+    right: -40%;
+    width: 250px;
+    height: 175px;
+    padding: 0;
+    animation: floatAnimation3 10.3s ease-in-out infinite;
+    box-shadow: none;
+}
+
+.rectangle3:hover {
+    rotate: -2deg;
+}
+
+.rectangle4 { 
+    bottom: -100px; 
+    right: -100%;
+    animation: floatAnimation4 10.4s ease-in-out infinite;
+    background-image: url(https://static.vecteezy.com/ti/fotos-gratis/p2/1103221-um-machado-de-ferro-preso-em-um-tronco-de-madeira-gratis-foto.jpg);
+    background-size: cover;
+}
+
+.rectangle4:hover {
+    rotate: 3deg;
+}
+
+.chutes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.chutes form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chutes input {
+    width: 30%;
+    height: 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.entrada {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.textos {
+    text-align: center;
+}
+.textos * {
+    margin: 0;
+}
+
+.chutes input:select {
+    background-color: red;
+}
+
+.tentativas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.rectangle1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    text-align: center;
+}
+
+.titulo h1 {
+    margin: 0;
+}
+
+.dados {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.bloco {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bloco * {
+    text-align: center;
+    margin: 0;
+}
+
+.tentativas {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.linha {
+    box-sizing: border-box;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.linha * {
+    background-color: #dad6cd;
+    text-align: center;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+
+}
+
+.linha-nome {
+    flex: 1.5;
+}
+
+.linha-dist {
+    flex: 1;
+}
+
+.linha-emoji {
+    flex: 1;
+}
+
+.textos {
+    margin-bottom: 1rem;
+}
+
+
+.win-screen, .lose-screen{
+    position: absolute;
+    width: 50%;
+    height: 75%;
+    transform: translate(50%, 15%);
+    background-color: #588157;
+    padding-top: 2rem;
+    box-shadow: 2px 2px 20px black;
+    border-radius: 1rem;
+    border: 2px solid #5cb25d;
+}
+
+.win-wrapper, .lose-wrapper {
+    color: #faf6ed;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.win-flag {
+    width: 100%;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.win-flag {
+    color:#faf6ed;
+}
+
+.win-stats {
+    width: 60%;
+    flex: 1.5;
+    color:#faf6ed;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.win-button, .lose-button {
+    flex: 0.5;
+}
+
+.win-button button, .lose-button button {
+    padding: 1rem;
+}
+
+.lose-screen {
+    background-color: #982B1C;
+    border: 2px solid #682a0d;
+}
+
+.lose-wrapper p {
+    width: 50%;
+}
+
+.lose-wrapper img {
+    margin-bottom: 1rem;
+}
+
+.row1, .row2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.item {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.item * {
+    margin: 0;
+}
+
+.footer p {
+    margin: 0;
+}
 .footer {
-    background-color: blue;
+    padding-bottom: 1rem;
+}
+
+.info {
+    position: absolute;
+    color: black;
+    width: 15%;
+    top:5%;
+    right: 2%;
+
+    background-color: #588157;
+    color: #faf6ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+    opacity: 0.1;
+    transition: 0.2s all ease-in-out;
+    animation: floatAnimation3 10.3s ease-in-out infinite;
+    box-shadow: 1px 1px 5px black;
+
+    overflow-y: scroll;
+    max-height: 50%;
+    scrollbar-width: thin;
+    scrollbar-color: #faf6ed #588157;
+}
+
+::-webkit-scrollbar-thumb {
+    background:red;
+}
+
+.info:hover {
+    cursor: pointer;
+    scale: 1.05;
+    opacity: 1;
+}
+
+.info ul {
+    font-size: smaller;
+    padding: 1rem;
+    padding-top: 0;
+}
+
+.info h3 {
+    margin: 0;
 }
