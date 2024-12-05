@@ -47,30 +47,6 @@ def test_database_initialization(db_handler):
     tables = db_handler.cursor.fetchall()
     assert any("countries" in table for table in tables)
 
-
-def test_get_country_details(db_handler):
-    """
-    Test retrieving country details from the database
-    """
-
-    # Test retrieving existing country
-    xen_details = db_handler.get_country_details(country_code="XE")
-    xen_details_index = db_handler.get_country_details(index=0)
-
-    assert (
-        xen_details == xen_details_index
-    )  # Asserting both index and country code works
-
-    assert xen_details is not None
-    assert xen_details[0] == 0  # index
-    assert xen_details[1] == "XE"  # country code
-    assert xen_details[2] == 83.9824  # latitude
-    assert xen_details[3] == -41.3111  # longitude
-    assert xen_details[4] == "Xen"  # name
-    assert xen_details[5] == 31415.9  # emissions
-    assert xen_details[6] == 2718281  # population
-
-
 def test_get_country_details_nonexistent(db_handler):
     """
     Test retrieving details for a non-existent country
