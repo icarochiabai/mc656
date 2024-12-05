@@ -13,16 +13,16 @@ class DatabaseHandler:
         self.initialize_database()
 
     def get_country_details(
-        self, *, country_code: str = None, index: int = None
+        self, *, country_name: str = None, index: int = None
     ) -> tuple[int, str, float, float, str, float, int]:
-        if country_code is None and index is None:
+        if country_name is None and index is None:
             raise RuntimeError("No parameters provided")
 
-        if country_code is not None and index is not None:
+        if country_name is not None and index is not None:
             raise RuntimeError("Both country code and index provided. Only specify one")
 
-        if country_code:
-            query = f"SELECT * FROM countries WHERE country_code = '{country_code}'"
+        if country_name:
+            query = f"SELECT * FROM countries WHERE country_name = '{country_name}'"
         else:
             query = f"""SELECT * FROM countries WHERE "index" = '{index}'"""
 
@@ -41,3 +41,8 @@ class DatabaseHandler:
     def add_data_to_database(self) -> None:
         countries_df = pd.read_csv(self.csv_path, keep_default_na=False)
         countries_df.to_sql("countries", self.conn, if_exists="replace")
+
+    def get_countries_names(self) -> list:
+        query = f"SELECT country_name FROM countries"
+        pre_data = self.cursor.execute(query).fetchall()
+        return [country[0] for country in pre_data]

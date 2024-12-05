@@ -5,6 +5,7 @@ html, body{
 
     margin: 0px;
     padding: 0px;
+    background-color: #faf6ed;
 }
 
 body {
@@ -13,18 +14,184 @@ body {
 }
 
 .header {
-    background-color: red;
+    background-color: #5cb25d;
+    color: white;
+    height: 64px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .content {
-    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 680px;
+}
 
+.chutes {
+    flex-grow: 1;
+}
+
+.footer {
+    background-color: #5cb25d;
+    height: 64px;
+}
+
+@keyframes floatAnimation1 {
+  0%, 100% {
+    transform: translateY(-13px); /* Não afeta a posição original */
+  }
+  50% {
+    transform: translateY(10px); /* Apenas flutuação vertical */
+  }
+}
+
+@keyframes floatAnimation2 {
+  0%, 100% {
+    transform: translateY(6px); /* Não afeta a posição original */
+  }
+  50% {
+    transform: translateY(-7px); /* Apenas flutuação vertical */
+  }
+}
+
+@keyframes floatAnimation3 {
+  0%, 100% {
+    transform: translateY(16px); /* Não afeta a posição original */
+  }
+  50% {
+    transform: translateY(-9px); /* Apenas flutuação vertical */
+  }
+}
+
+@keyframes floatAnimation4 {
+  0%, 100% {
+    transform: translateY(-12px); /* Não afeta a posição original */
+  }
+  50% {
+    transform: translateY(8px); /* Apenas flutuação vertical */
+  }
+}
+
+.globe-container {
+    position: relative;
+}
+
+/* Estilo para os retângulos flutuantes */
+.floating-rectangle {
+    position: absolute;
+    width: 400px;    /* Largura dos retângulos */
+    height: 200px;   /* Altura dos retângulos */
+    background-color: rgba(0, 128, 0, 0.6);  /* Cor com transparência */
+    color: white;
+    padding: 1rem;
+
+    transition: all 0.3s ease; /* Transição suave para hover */
+    scale: 0.8;
+
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+}
+
+.titulo {
+    border-bottom: 1px solid white;
+}
+
+.floating-rectangle:hover {
+    scale: 1.2;
+}
+
+
+
+/* Posições dos retângulos em volta do globo */
+.rectangle1 { 
+    top: -100px; 
+    left: -100%;
+    animation: floatAnimation1 10.1s ease-in-out infinite;
+}
+
+.rectangle1:hover {
+    rotate: 2deg;
+}
+
+.rectangle2 { 
+    bottom: -160px; 
+    left: -85%;
+    animation: floatAnimation2 10.2s ease-in-out infinite;
+}
+
+.rectangle2:hover {
+    rotate: -1deg;
+}
+
+.rectangle3 { 
+    top: -100px; 
+    right: -40%;
+    width: 250px;
+    height: 175px;
+    padding: 0;
+    animation: floatAnimation3 10.3s ease-in-out infinite;
+}
+
+.rectangle3:hover {
+    rotate: -2deg;
+}
+
+.rectangle4 { 
+    bottom: -100px; 
+    right: -100%;
+    animation: floatAnimation4 10.4s ease-in-out infinite;
+}
+
+.rectangle4:hover {
+    rotate: 3deg;
+}
+
+.chutes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.chutes form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chutes input {
+    width: 30%;
+    height: 2rem;
+    font-size: 1.5rem;
+}
+
+.chutes input:select {
+    background-color: red;
+}
+
+.tentativas {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.footer {
-    background-color: blue;
+.win-screen{
+    background-image: url(https://media.tenor.com/i1RnhWXbKXkAAAAi/thumbs-up-cat.gif);
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-color: white;
+    border-radius: 4rem;
+
+    transform: translate(100%, 25%);
 }
