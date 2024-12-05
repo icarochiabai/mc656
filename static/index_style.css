@@ -11,16 +11,37 @@ html, body{
 body {
     display: flex;
     flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;  
 }
 
 .header {
-    background-color: #5cb25d;
+    font-family: 'Flavors', cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+
     color: white;
     height: 64px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.header h1 {
+    padding-top: 2rem;
+    text-shadow: 1px 1px 3px black;
+    transition: all 0.3s ease-in-out;
+}
+
+.header h1:hover {
+    scale: 1.1;
+    rotate: 3deg;
+    cursor: pointer;
 }
 
 .content {
@@ -36,8 +57,15 @@ body {
 }
 
 .footer {
-    background-color: #5cb25d;
+    color: #5F8D4E;
     height: 64px;
+    text-align: center;
+}
+
+.footer a {
+    text-decoration: none;
+    text-decoration-style: none;
+    color: #5F8D4E;
 }
 
 @keyframes floatAnimation1 {
@@ -111,7 +139,7 @@ body {
 
 /* Posições dos retângulos em volta do globo */
 .rectangle1 { 
-    top: -100px; 
+    top:-100px;
     left: -100%;
     animation: floatAnimation1 10.1s ease-in-out infinite;
     background-image: url(https://thehill.com/wp-content/uploads/sites/2/2023/12/6583687ac36632.92253592-e1714172952923.jpeg?strip=1);
@@ -123,7 +151,7 @@ body {
 }
 
 .rectangle2 { 
-    bottom: -160px; 
+    bottom: -120px; 
     left: -85%;
     animation: floatAnimation2 10.2s ease-in-out infinite;
     background-image: url(https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2022/03/07/toerneira.jpg);
@@ -135,7 +163,7 @@ body {
 }
 
 .rectangle3 { 
-    top: -100px; 
+    top: -70px; 
     right: -40%;
     width: 250px;
     height: 175px;
@@ -285,15 +313,6 @@ body {
     margin-bottom: 1rem;
 }
 
-.footer {
-    text-align: center;
-}
-
-.footer a {
-    text-decoration: none;
-    text-decoration-style: none;
-    color: #faf6ed;
-}
 
 .win-screen, .lose-screen{
     position: absolute;
@@ -335,6 +354,9 @@ body {
     width: 60%;
     flex: 1.5;
     color:#faf6ed;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
 }
 
 .win-button, .lose-button {
@@ -347,4 +369,83 @@ body {
 
 .lose-screen {
     background-color: #982B1C;
+    border: 2px solid #682a0d;
+}
+
+.lose-wrapper p {
+    width: 50%;
+}
+
+.lose-wrapper img {
+    margin-bottom: 1rem;
+}
+
+.row1, .row2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.item {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.item * {
+    margin: 0;
+}
+
+.footer p {
+    margin: 0;
+}
+.footer {
+    padding-bottom: 1rem;
+}
+
+.info {
+    position: absolute;
+    color: black;
+    width: 15%;
+    top:5%;
+    right: 2%;
+
+    background-color: #588157;
+    color: #faf6ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+    opacity: 0.1;
+    transition: 0.2s all ease-in-out;
+    animation: floatAnimation3 10.3s ease-in-out infinite;
+    box-shadow: 1px 1px 5px black;
+
+    overflow-y: scroll;
+    max-height: 50%;
+    scrollbar-width: thin;
+    scrollbar-color: #faf6ed #588157;
+}
+
+::-webkit-scrollbar-thumb {
+    background:red;
+}
+
+.info:hover {
+    cursor: pointer;
+    scale: 1.05;
+    opacity: 1;
+}
+
+.info ul {
+    font-size: smaller;
+    padding: 1rem;
+    padding-top: 0;
+}
+
+.info h3 {
+    margin: 0;
 }
