@@ -47,6 +47,7 @@ def test_database_initialization(db_handler):
     tables = db_handler.cursor.fetchall()
     assert any("countries" in table for table in tables)
 
+
 def test_get_country_details_nonexistent(db_handler):
     """
     Test retrieving details for a non-existent country
