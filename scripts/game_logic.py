@@ -3,7 +3,7 @@ from scripts.country_data_manager import DatabaseHandler
 from scripts.distance_calculator import DistanceCalculator
 
 
-class GameLogic():
+class GameLogic:
     def __init__(self, tries, seed):
         self.tries = tries
         self.country_chooser = CountryChooser(seed)
@@ -19,9 +19,9 @@ class GameLogic():
 
     def get_country(self, country_name=None, country_id=None):
         if country_name:
-            params={"country_name":country_name}
+            params = {"country_name": country_name}
         else:
-            params={"index":country_id}
+            params = {"index": country_id}
         details = self.country_data_manager.get_country_details(**params)
         country_details = {
             "index": details[0],
@@ -31,10 +31,10 @@ class GameLogic():
             "co2_emission": details[5],
             "population": details[6],
             "deflorest": details[7],
-            "consume": details[8]
+            "consume": details[8],
         }
 
-        return country_details 
+        return country_details
 
     def daily_country(self):
         country_id = self.country_chooser.choose(self.num_country)
@@ -49,7 +49,7 @@ class GameLogic():
         else:
             self.blur -= self.blur_dec
         return self.blur
-    
+
     def try_guess(self, guess, target):
         if guess != "" and guess in self.guess_options:
             if guess.lower() == target.lower():
