@@ -1,4 +1,4 @@
-country,latitude,longitude,name,emissions,population
+country_code,latitude,longitude,country_name,emissions,population
 AD,42.546245,1.601554,Andorra,423874.0,80088
 AE,23.424076,53.847818,United Arab Emirates,229383650.0,9516871
 AF,33.93911,67.709953,Afghanistan,11020218.0,42239854

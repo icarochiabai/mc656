@@ -39,6 +39,10 @@ class DatabaseHandler:
         image_binary = self.cursor.execute(query).fetchone()[0]
         return BytesIO(image_binary)
 
+    def get_row_count(self) -> int:
+        query = "SELECT COUNT(*) FROM countries"
+        return self.cursor.execute(query).fetchone()[0]
+
     def initialize_database(self) -> None:
         self.conn = sqlite3.connect(self.db_path)
         self.cursor = self.conn.cursor()
