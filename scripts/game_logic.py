@@ -22,7 +22,6 @@ class GameLogic():
             params={"country_name":country_name}
         else:
             params={"index":country_id}
-        print(params)
         details = self.country_data_manager.get_country_details(**params)
         country_details = {
             "index": details[0],
@@ -52,13 +51,10 @@ class GameLogic():
         return self.blur
     
     def try_guess(self, guess, target):
-        print(guess, target)
         if guess != "" and guess in self.guess_options:
             if guess.lower() == target.lower():
-                print("Acertou")
                 return "won"
             else:
-                print("Errou")
                 self.tries -= 1
                 return "missed"
         return "invalid"
