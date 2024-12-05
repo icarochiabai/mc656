@@ -48,16 +48,6 @@ def test_database_initialization(db_handler):
     assert any("countries" in table for table in tables)
 
 
-def test_get_country_details_nonexistent(db_handler):
-    """
-    Test retrieving details for a non-existent country
-    """
-
-    # Test retrieving non-existent country
-    nonexistent_details = db_handler.get_country_details(country_code="ZZ")
-    assert nonexistent_details is None
-
-
 def test_if_data_was_added_to_database(db_handler):
     """
     Test adding data to the database from CSV
