@@ -4,9 +4,9 @@ from scripts.distance_calculator import DistanceCalculator
 
 
 class GameLogic():
-    def __init__(self, tries):
+    def __init__(self, tries, seed):
         self.tries = tries
-        self.country_chooser = CountryChooser("engenharia de software melhor materia <3", timezone="America/Sao_Paulo")
+        self.country_chooser = CountryChooser(seed)
         self.country_data_manager = DatabaseHandler()
         self.distance_calculator = DistanceCalculator()
         self.blur = 50

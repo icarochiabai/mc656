@@ -64,30 +64,51 @@
             </svg>
             <div class="floating-rectangle rectangle1">
                 <div class="titulo">
-                    <span>Emissão de CO₂</span>
+                    <h1>Emissão de CO₂</h1>
                 </div>
-                    <span>Emissão de CO₂ total: {{ co2_emission|int }} tons/year </span>
-                    <span>Emissão de CO₂ per capta: {{ (co2_emission/population)|round(2) }} tons/year </span>
                 <div class="dados">
+                    <div class="bloco">
+                        <h3>Total</h3>
+                        <h1>{{ co2_emission|int }} </h1>
+                        <h3> tons/year </h3>
+                    </div>
+                    <div class="bloco">
+                        <h3>Per Capita</h3>
+                        <h1>{{ (co2_emission/population)|round(2) }} </h1>
+                        <h3> tons/year </h3>
 
+                    </div>
                 </div>
             </div>
             <div class="floating-rectangle rectangle2">
                 <div class="titulo">
-                    <span>Consumo hídrico</span>
+                    <h1>Consumo hídrico</h1>
                 </div>
                 <div class="dados">
-                    <span> {{ consume }} ML³/year</span>
+                    <div class="bloco">
+                        <h3>Total</h3>
+                        <h1>{{ consume|int }} </h1>
+                        <h3> Mm³/year </h3>
+                    </div>
+                    <div class="bloco">
+                        <h3>Per Capita</h3>
+                        <h1>{{ (1000*1000*1000*consume/population)|round(2) }} </h1>
+                        <h3> L/year </h3>
+                    </div>
                 </div>
             </div>
             <div id="bandeira" class="floating-rectangle rectangle3" style="background-color: transparent; background-image: url({{ '/static/images/' + code  + '.png'}}); background-repeat:no-repeat; background-size:contain; filter: blur({{blur}}px);">
             </div>
             <div class="floating-rectangle rectangle4">
                 <div class="titulo">
-                    <span>Desmatamento</span>
+                    <h1>Desmatamento</h1>
                 </div>
                 <div class="dados">
-                    <span> {{ deflorest }} hec/year</span>
+                    <div class="bloco">
+                        <h3>Total</h3>
+                        <h1>{{ deflorest }}</h1>
+                        <h3> hec/year </h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -95,40 +116,73 @@
 
     <div class="chutes">
         <form method="POST" action=" {{url_for('guess_country') }}">
-            <input list="countries" id="country" name="country" placeholder="Escolha um país...">
+            <div class="entrada">
+                <div class="textos">
+                    <h4>Tentativas</h4>
+                    <h2>{{ guesses|length }} / 5</h2>
+                </div>
+                <input list="countries" id="country" name="country" placeholder="Escolha um país...">
+            </div>
             <datalist id="countries">
                 {% for country in countries %}
                     <option value="{{ country }}">
                 {% endfor %}
             </datalist>
         </form>
+            {% if guesses|length > 0 %}
         <div class="tentativas">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Distância</th>
-                        <th>Tentativas restantes</th>
-                    </tr>
-                </thead>
-                <tbody>
                     {% for guess in guesses %}
-                        <tr>
-                            <td> {{ guess[0] }} </td>
-                            <td> {{ guess[1] }} </td>
-                            <td> {{ guess[2] }} </td>
-                        </tr>
+                        <div class="linha">
+                            <div class="linha-nome"> {{ guess[0] }} </div>
+                            <div class="linha-dist"> {{ guess[1] }} km </div>
+                            <div class="linha-emoji"> {% if guess[0] == name %} 
+                                    🟢🎉
+                                 {% else %}
+                                    🔴
+                                 {% endif %}
+                            </div>
+                        </div>
                     {% endfor %}
-                </tbody>
-            </table>
         </div>
+        {% endif %}
     </div>
 
     <div class="footer">
-        <p>oi</p>
+        <p>Desenvolvido para disciplina de Engenharia de Software MC656 | <a href="https://github.com/icarochiabai/mc656">GitHub</a></p>
     </div>
 
-    <!-- <div class="win-screen" style="display:{{ 'block' if has_won else 'hidden' }}">
-    </div> -->
+    <div class="win-screen" style="display:{{ 'block' if has_won else 'none' }}">
+        <div class="win-wrapper">
+            <h1>Parabéns! Você ganhou! 🎉🥳</h1>
+            <div class="win-flag">
+                <img src="{{ '/static/images/' + code + '.png' }}"/>
+                <h1>
+                    {{name}}
+                </h1>
+            </div>
+            <div class="win-stats">
+                <ul>
+                    <li>População: {{population}} habitantes </li>
+                    <li>Emissão de CO₂: {{co2_emission}} toneladas/ano (total) // {{ (co2_emission/population)|round(2) }} toneladas/ano (per capita) </li>
+                    <li>Consumo hídrico: {{consume}} Mm³/ano (total) // {{consume}} Mm³/ano (per capita)</li>
+                    <li>Desmatamento: {{deflorest}} hectares/ano</li>
+                </ul>
+            </div>
+            <div class="win-button">
+                <form method="POST" action=" {{url_for('reset') }}">
+                    <button>Jogar novamente</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="lose-screen" style="display:{{ 'block' if has_lost else 'none' }}">
+    <div class="lose-wrapper">
+        <h1>Você perdeu! ☹</h1>
+        <div class="win-button">
+            <form method="POST" action=" {{url_for('reset') }}">
+                <button>Jogar novamente</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

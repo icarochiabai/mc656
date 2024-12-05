@@ -87,14 +87,15 @@ body {
     height: 200px;   /* Altura dos retângulos */
     background-color: rgba(0, 128, 0, 0.6);  /* Cor com transparência */
     color: white;
-    padding: 1rem;
 
     transition: all 0.3s ease; /* Transição suave para hover */
     scale: 0.8;
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding-top: 0;
+    box-shadow: 0.2px 1px 10px black;
 }
 
 .titulo {
@@ -103,6 +104,7 @@ body {
 
 .floating-rectangle:hover {
     scale: 1.2;
+    cursor: pointer;
 }
 
 
@@ -112,6 +114,8 @@ body {
     top: -100px; 
     left: -100%;
     animation: floatAnimation1 10.1s ease-in-out infinite;
+    background-image: url(https://thehill.com/wp-content/uploads/sites/2/2023/12/6583687ac36632.92253592-e1714172952923.jpeg?strip=1);
+    background-size: cover;
 }
 
 .rectangle1:hover {
@@ -122,6 +126,8 @@ body {
     bottom: -160px; 
     left: -85%;
     animation: floatAnimation2 10.2s ease-in-out infinite;
+    background-image: url(https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2022/03/07/toerneira.jpg);
+    background-size: cover;
 }
 
 .rectangle2:hover {
@@ -135,6 +141,7 @@ body {
     height: 175px;
     padding: 0;
     animation: floatAnimation3 10.3s ease-in-out infinite;
+    box-shadow: none;
 }
 
 .rectangle3:hover {
@@ -145,6 +152,8 @@ body {
     bottom: -100px; 
     right: -100%;
     animation: floatAnimation4 10.4s ease-in-out infinite;
+    background-image: url(https://static.vecteezy.com/ti/fotos-gratis/p2/1103221-um-machado-de-ferro-preso-em-um-tronco-de-madeira-gratis-foto.jpg);
+    background-size: cover;
 }
 
 .rectangle4:hover {
@@ -169,6 +178,22 @@ body {
     width: 30%;
     height: 2rem;
     font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.entrada {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textos {
+    text-align: center;
+}
+.textos * {
+    margin: 0;
 }
 
 .chutes input:select {
@@ -182,16 +207,144 @@ body {
     align-items: center;
 }
 
-.win-screen{
-    background-image: url(https://media.tenor.com/i1RnhWXbKXkAAAAi/thumbs-up-cat.gif);
-    width: 600px;
-    height: 600px;
+
+.rectangle1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    text-align: center;
+}
+
+.titulo h1 {
+    margin: 0;
+}
+
+.dados {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.bloco {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bloco * {
+    text-align: center;
+    margin: 0;
+}
+
+.tentativas {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.linha {
+    box-sizing: border-box;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.linha * {
+    background-color: #dad6cd;
+    text-align: center;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+
+}
+
+.linha-nome {
+    flex: 1.5;
+}
+
+.linha-dist {
+    flex: 1;
+}
+
+.linha-emoji {
+    flex: 1;
+}
+
+.textos {
+    margin-bottom: 1rem;
+}
+
+.footer {
+    text-align: center;
+}
+
+.footer a {
+    text-decoration: none;
+    text-decoration-style: none;
+    color: #faf6ed;
+}
+
+.win-screen, .lose-screen{
     position: absolute;
-    background-repeat: no-repeat;
-    background-size: cover;
+    width: 50%;
+    height: 75%;
+    transform: translate(50%, 15%);
+    background-color: #588157;
+    padding-top: 2rem;
+    box-shadow: 2px 2px 20px black;
+    border-radius: 1rem;
+    border: 2px solid #5cb25d;
+}
 
-    background-color: white;
-    border-radius: 4rem;
+.win-wrapper, .lose-wrapper {
+    color: #faf6ed;
+    width: 100%;
+    height: 100%;
 
-    transform: translate(100%, 25%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.win-flag {
+    width: 100%;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.win-flag {
+    color:#faf6ed;
+}
+
+.win-stats {
+    width: 60%;
+    flex: 1.5;
+    color:#faf6ed;
+}
+
+.win-button, .lose-button {
+    flex: 0.5;
+}
+
+.win-button button, .lose-button button {
+    padding: 1rem;
+}
+
+.lose-screen {
+    background-color: #982B1C;
 }
